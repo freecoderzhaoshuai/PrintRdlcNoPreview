@@ -1,6 +1,7 @@
 ﻿using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -19,7 +20,9 @@ namespace PrintRdlcNoPreview
         {
             LocalReport localReport = new LocalReport();
             localReport.ReportPath = Server.MapPath("Report.rdlc");
-            string printerName = "Microsoft XPS Document Writer";
+            DataTable dataTable = new DataTable();
+            localReport.DataSources.Add(new ReportDataSource("GridHead", dataTable));
+            string printerName = "Microsoft Print to PDF";
             localReport.PrintToPrinter(printerName);
         }
     }

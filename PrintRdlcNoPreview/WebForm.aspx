@@ -8,6 +8,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Print" />
         <div>
         </div>
     </form>

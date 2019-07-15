@@ -21,6 +21,12 @@ namespace PrintRdlcNoPreview
             LocalReport localReport = new LocalReport();
             localReport.ReportPath = Server.MapPath("Report.rdlc");
             DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("InvoiceNo");
+            dataTable.Columns.Add("Company");
+            DataRow row = dataTable.NewRow();
+            row["InvoiceNo"] = "311111";
+            row["Company"] = "hahahah";
+            dataTable.Rows.Add(row);
             localReport.DataSources.Add(new ReportDataSource("GridHead", dataTable));
             string printerName = "Microsoft Print to PDF";
             localReport.PrintToPrinter(printerName);
